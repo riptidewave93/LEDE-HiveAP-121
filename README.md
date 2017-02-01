@@ -28,13 +28,13 @@ Flashing
 
 To Do
 -----
-##### Z1
+##### HiveAP-121
   * SoC 2.4GHz Wireless
   * TPM Driver Module (needs investigation)
 
 Working
 -----
-##### Z1
+##### HiveAP-121
   * Ethernet
   * USB
   * LEDs/Reset
