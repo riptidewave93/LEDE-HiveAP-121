@@ -72,27 +72,27 @@ static struct i2c_gpio_platform_data HIVEAP_121_i2c_gpio_data = {
 };
 
 static struct platform_device HIVEAP_121_i2c_gpio_device = {
-	.name		= "i2c-gpio",
+	.name	= "i2c-gpio",
 	.id		= 0,
-	.dev = {
+	.dev	= {
 		.platform_data  = &HIVEAP_121_i2c_gpio_data,
 	}
 };
 
 static void __init hiveap_121_setup(void)
 {
-  u8 *base = (u8 *) KSEG1ADDR(0x1f000000);
+	u8 *base = (u8 *) KSEG1ADDR(0x1f000000);
 	u8 wlan0_mac[ETH_ALEN];
 	u8 wlan1_mac[ETH_ALEN];
 
-  /* NAND */
+ 	/* NAND */
 	ath79_nfc_set_ecc_mode(AR934X_NFC_ECC_HW);
 	ath79_register_nfc();
 
 	/* SPI */
 	ath79_register_m25p80(NULL);
 
-  /* MDIO Interface */
+	/* MDIO Interface */
 	ath79_register_mdio(0, 0x0);
 	ath79_setup_ar934x_eth_cfg(AR934X_ETH_CFG_RGMII_GMAC0 |
                                   AR934X_ETH_CFG_RXD_DELAY |
@@ -121,8 +121,8 @@ static void __init hiveap_121_setup(void)
 
 	/* USB */
 	gpio_request_one(HIVEAP_121_GPIO_USB_POWER,
-			 GPIOF_OUT_INIT_HIGH | GPIOF_EXPORT_DIR_FIXED,
-			 "USB power");
+					GPIOF_OUT_INIT_HIGH | GPIOF_EXPORT_DIR_FIXED,
+					"USB power");
 	ath79_register_usb();
 
 	/* XLNA */
