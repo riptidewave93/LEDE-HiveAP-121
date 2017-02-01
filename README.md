@@ -16,12 +16,14 @@ Flashing
 -----
   1. Hookup to the Console port (speed 9600) and power on the device and enter the bootloader. Note you may need to enter a password of "administrator", or on newer firmwares, you may need to reach out to Aerohive for the password.
   2. Once in U-Boot, you can boot the tftp image. This is normally done with the following:
+
   ```
   dhcp;
   setenv serverip 192.168.1.1xx;
   tftpboot 0x81000000 lede-ar71xx-nand-hiveap-121-initramfs-kernel.bin;
   bootm;
   ```
+
   3. Once booted, wire up to the device directly and navigate to LuCI at 192.168.1.1. Once in LuCI, you can use sysupgrade to flash the firmware to the NAND.
 
 To Do
