@@ -29,7 +29,6 @@ Flashing
 To Do
 -----
 ##### HiveAP-121
-  * SoC 2.4GHz Wireless - OTP issue :(
   * Add TPM tools to userspace
 
 Working
@@ -39,6 +38,7 @@ Working
   * USB
   * LEDs/Reset
   * I2C Interface (for TPM)
+  * SoC 2.4Ghz Wireless
   * PCIe 5.0Ghz Wireless
   * Userspace & Sysupgrade
   * NAND/SPI
