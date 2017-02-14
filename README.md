@@ -14,7 +14,7 @@ Note that you will need to run a modify on the first compile to select the NAND 
 
 Flashing
 -----
-  1. Hookup to the Console port (speed 9600) and power on the device and enter the bootloader. Note you may need to enter a password of "administrator" or "AhNf?d@ta06" if prompted.
+  1. Hookup to the Console port (speed 9600) and power on the device and enter the bootloader. Note you may need to enter a password of `administrator` or `AhNf?d@ta06"` if prompted.
   2. Once in U-Boot, you can boot the initramfs image by hosting it on a local tftp server. You can then boot LEDE with the following:
 
   ```
@@ -29,8 +29,8 @@ Flashing
 To Do
 -----
 ##### HiveAP-121
-  * SoC 2.4GHz Wireless
-  * TPM Driver Module (needs investigation)
+  * SoC 2.4GHz Wireless - OTP issue :(
+  * Add TPM tools to userspace
 
 Working
 -----
@@ -39,9 +39,10 @@ Working
   * USB
   * LEDs/Reset
   * I2C Interface (for TPM)
-  * PCIe 5.0GHz Wireless
+  * PCIe 5.0Ghz Wireless
   * Userspace & Sysupgrade
   * NAND/SPI
+  * TPM Driver Modules
 
 Notice
 ------

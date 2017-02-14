@@ -79,6 +79,12 @@ static struct platform_device HIVEAP_121_i2c_gpio_device = {
 	}
 };
 
+static struct i2c_board_info tpm_i2c_info[] __initdata = {
+	{
+		I2C_BOARD_INFO("tpm_i2c_atmel", 0x29),
+	}
+};
+
 static void __init hiveap_121_setup(void)
 {
 	u8 *base = (u8 *) KSEG1ADDR(0x1f000000);
@@ -108,8 +114,11 @@ static void __init hiveap_121_setup(void)
 	ath79_eth0_pll_data.pll_10 = 0x00001313;
  	ath79_register_eth(0);
 
-	/* i2c - Used by TPM */
+	/* i2c */
 	ath79_gpio_function_enable(AR934X_GPIO_FUNC_JTAG_DISABLE);
+	i2c_register_board_info(0, tpm_i2c_info, ARRAY_SIZE(tpm_i2c_info));
+
+	/* TPM */
 	platform_device_register(&HIVEAP_121_i2c_gpio_device);
 
 	/* LEDs and Buttons */
@@ -125,13 +134,13 @@ static void __init hiveap_121_setup(void)
 					"USB power");
 	ath79_register_usb();
 
-	/* XLNA */
+	/* XLNA - SoC Wireless */
 	ath79_wmac_set_ext_lna_gpio(0, HIVEAP_121_GPIO_XLNA0);
 	ath79_wmac_set_ext_lna_gpio(1, HIVEAP_121_GPIO_XLNA1);
 
 	/* SoC Wireless */
 	ath79_init_mac(wlan0_mac, base + HIVEAP_121_MAC_OFFSET, 1);
-	ath79_register_wmac(NULL, wlan0_mac);
+	ath79_register_wmac(NULL, wlan0_mac); /* Caldata in OTP */
 
 	/* PCIe Wireless */
 	ath79_init_mac(wlan1_mac, base + HIVEAP_121_MAC_OFFSET, 2);
