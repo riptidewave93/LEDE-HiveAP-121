@@ -116,10 +116,10 @@ static void __init hiveap_121_setup(void)
 
 	/* i2c */
 	ath79_gpio_function_enable(AR934X_GPIO_FUNC_JTAG_DISABLE);
-	i2c_register_board_info(0, tpm_i2c_info, ARRAY_SIZE(tpm_i2c_info));
+	platform_device_register(&HIVEAP_121_i2c_gpio_device);
 
 	/* TPM */
-	platform_device_register(&HIVEAP_121_i2c_gpio_device);
+	i2c_register_board_info(0, tpm_i2c_info, ARRAY_SIZE(tpm_i2c_info));
 
 	/* LEDs and Buttons */
 	ath79_register_leds_gpio(-1, ARRAY_SIZE(HIVEAP_121_leds_gpio),
