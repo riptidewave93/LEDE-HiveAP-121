@@ -33,8 +33,8 @@ While support for the TPM has been added, at this time the password for the TPM 
 Note that if you do this, the process is irreversible and **YOU WILL NOT BE ABLE TO GO BACK TO STOCK!** This is due to the fact the stock firmware relies on the information stored within the TPM. Because of this, the reset process will **NOT** be documented.
 
 Technical specs of the TPM can be found at:
-http://www.atmel.com/Images/Atmel-5295S-TPM-AT97SC3204-LPC-Interface-Datasheet-Summary.pdf
-http://csrc.nist.gov/groups/STM/cmvp/documents/140-1/140sp/140sp2014.pdf
+ * http://www.atmel.com/Images/Atmel-5295S-TPM-AT97SC3204-LPC-Interface-Datasheet-Summary.pdf
+ * http://csrc.nist.gov/groups/STM/cmvp/documents/140-1/140sp/140sp2014.pdf
 
 To Do
 -----
