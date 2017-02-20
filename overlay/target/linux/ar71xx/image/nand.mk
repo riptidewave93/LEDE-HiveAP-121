@@ -1,6 +1,6 @@
 define Device/hiveap-121
   DEVICE_TITLE := Aerohive HiveAP-121
-  DEVICE_PACKAGES := kmod-usb-core kmod-usb2 kmod-i2c-gpio-custom kmod-spi-gpio kmod-ath9k kmod-owl-loader
+  DEVICE_PACKAGES := kmod-usb-core kmod-usb2 kmod-i2c-gpio-custom kmod-spi-gpio kmod-ath9k kmod-tpm-i2c-atmel
   BOARDNAME = HiveAP-121
   BLOCKSIZE := 64k
   CONSOLE = ttyS0,9600
