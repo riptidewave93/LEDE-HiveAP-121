@@ -29,11 +29,12 @@ Flashing
 To Do
 -----
 ##### HiveAP-121
-  * Add TPM tools to userspace
+  * You tell me?
 
 Working
 -----
 ##### HiveAP-121
+  * NAND/SPI
   * Ethernet
   * USB
   * LEDs/Reset
@@ -41,8 +42,8 @@ Working
   * SoC 2.4Ghz Wireless
   * PCIe 5.0Ghz Wireless
   * Userspace & Sysupgrade
-  * NAND/SPI
   * TPM Driver Modules
+  * TPM Userspace tools
 
 Notice
 ------
