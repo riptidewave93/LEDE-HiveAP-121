@@ -39,7 +39,7 @@ endef
 TARGET_LDFLAGS += -lz -lpthread -Wl,-rpath-link=$(STAGING_DIR)/usr/lib
 
 CONFIGURE_ARGS+= \
-  --prefix=/usr \
+	--prefix=/usr \
 	--disable-usercheck
 
 define Build/InstallDev

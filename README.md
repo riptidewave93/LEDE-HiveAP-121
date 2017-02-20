@@ -26,6 +26,16 @@ Flashing
 
   3. Once booted, wire up to the device directly and navigate to LuCI at 192.168.1.1. Once in LuCI, you can use sysupgrade to flash the firmware to the NAND.
 
+TPM Notes
+-----
+While support for the TPM has been added, at this time the password for the TPM is unknown. If you want to reset the TPM you will need to do this manually by resetting the TPM, reloading the modules, and reviewing https://cryptotronix.com/2014/08/28/compliance_mode/.
+
+Note that if you do this, the process is irreversible and **YOU WILL NOT BE ABLE TO GO BACK TO STOCK!** This is due to the fact the stock firmware relies on the information stored within the TPM. Because of this, the reset process will **NOT** be documented.
+
+Technical specs of the TPM can be found at:
+http://www.atmel.com/Images/Atmel-5295S-TPM-AT97SC3204-LPC-Interface-Datasheet-Summary.pdf
+http://csrc.nist.gov/groups/STM/cmvp/documents/140-1/140sp/140sp2014.pdf
+
 To Do
 -----
 ##### HiveAP-121

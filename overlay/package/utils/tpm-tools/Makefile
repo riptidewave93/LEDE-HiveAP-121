@@ -67,10 +67,6 @@ SBIN_BINARIES:= \
 	tpm_version
 
 define Package/tpm-tools/install
-	$(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/cmds/tpm_sealdata $(1)/usr/bin/tpm_sealdata
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/cmds/tpm_unsealdata $(1)/usr/bin/tpm_unsealdata
-
 	$(INSTALL_DIR) $(1)/usr/sbin
 	for file in $(SBIN_BINARIES); do \
 		$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/tpm_mgmt/$$$$file \
