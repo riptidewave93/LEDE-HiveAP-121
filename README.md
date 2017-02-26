@@ -28,7 +28,7 @@ Flashing
 
 TPM Notes
 -----
-While support for the TPM has been added, at this time the password for the TPM is unknown. If you want to reset the TPM you will need to do this manually by resetting the TPM, reloading the modules, and reviewing https://cryptotronix.com/2014/08/28/compliance_mode/.
+While support for the TPM has been added, at this time the password for the TPM is unknown. If you want to reset the TPM you will need to do this manually by resetting the TPM, reloading the modules, and reviewing https://cryptotronix.com/2014/08/28/compliance_mode/. If you need `tpm_assertpp`, a pre-compiled version can be downloaded [here](https://servernetworktech.com/uploads/files/hiveap-121/tpm_assertpp.zip).
 
 Note that if you do this, the process is irreversible and **YOU WILL NOT BE ABLE TO GO BACK TO STOCK!** This is due to the fact the stock firmware relies on the information stored within the TPM. Because of this, the reset process will **NOT** be documented.
 
