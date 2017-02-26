@@ -958,13 +958,7 @@ $(eval $(call KernelPackage,bmp085-spi))
 define KernelPackage/tpm
   SUBMENU:=$(OTHER_MENU)
   TITLE:=TPM Hardware Support
-  KCONFIG:= CONFIG_TCG_TPM \
-	CONFIG_TCG_TIS=n \
-	CONFIG_TCG_TIS_I2C_ATMEL=n \
-	CONFIG_TCG_TIS_I2C_INFINEON=n \
-	CONFIG_TCG_TIS_I2C_NUVOTON=n \
-	CONFIG_TCG_ATMEL=n \
-	CONFIG_TCG_TIS_ST33ZP24=n
+  KCONFIG:= CONFIG_TCG_TPM
   FILES:= $(LINUX_DIR)/drivers/char/tpm/tpm.ko
   AUTOLOAD:=$(call AutoLoad,10,tpm,1)
 endef
