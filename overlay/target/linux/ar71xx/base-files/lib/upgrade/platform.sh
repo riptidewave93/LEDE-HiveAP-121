@@ -111,7 +111,7 @@ tplink_pharos_check_image() {
 	# is accepted (loading the first 1.5M of a remote image for this check seems
 	# a bit extreme)
 	dd if="$1" bs=1 skip=1511432 count=1024 2>/dev/null | while read line; do
-		[ "$line" == "$model_string" ] && break
+		[ "$line" = "$model_string" ] && break
 	done || {
 		echo "Unsupported image (model not in support-list)"
 		return 1
@@ -204,6 +204,7 @@ platform_check_image() {
 	airgateway|\
 	airrouter|\
 	ap132|\
+	ap531b0|\
 	ap90q|\
 	archer-c59-v1|\
 	archer-c60-v1|\
@@ -216,6 +217,7 @@ platform_check_image() {
 	cf-e380ac-v2|\
 	cf-e520n|\
 	cf-e530n|\
+	cpe505n|\
 	cpe830|\
 	cpe870|\
 	dgl-5500-a1|\
@@ -255,6 +257,7 @@ platform_check_image() {
 	nanostation-m|\
 	nbg460n_550n_550nh|\
 	pqi-air-pen|\
+	r602n|\
 	rocket-m-ti|\
 	rocket-m-xw|\
 	rocket-m|\
@@ -280,6 +283,7 @@ platform_check_image() {
 	wpj342|\
 	wpj344|\
 	wpj531|\
+	wpj563|\
 	wrt400n|\
 	wrtnode2q|\
 	wzr-450hp2|\
@@ -427,6 +431,8 @@ platform_check_image() {
 	tl-wr802n-v1|\
 	tl-wr802n-v2|\
 	tl-wr810n|\
+	tl-wr840n-v2|\
+	tl-wr840n-v3|\
 	tl-wr841n-v11|\
 	tl-wr841n-v1|\
 	tl-wr841n-v7|\
@@ -502,6 +508,7 @@ platform_check_image() {
 	rb-951g-2hnd|\
 	rb-951ui-2hnd|\
 	rb-2011l|\
+	rb-2011il|\
 	rb-2011uas|\
 	rb-2011uias|\
 	rb-2011uas-2hnd|\
@@ -638,6 +645,9 @@ platform_check_image() {
 	rb-750up-r2|\
 	rb-941-2nd|\
 	rb-951ui-2nd|\
+	rb-952ui-5ac2nd|\
+	rb-962uigs-5hact2hnt|\
+	rb-lhg-5nd|\
 	rb-mapl-2nd)
 		return 0
 		;;
@@ -675,6 +685,7 @@ platform_pre_upgrade() {
 	rb-912uag-5hpnd|\
 	rb-951g-2hnd|\
 	rb-951ui-2hnd|\
+	rb-2011il|\
 	rb-2011l|\
 	rb-2011uas|\
 	rb-2011uias|\
@@ -685,6 +696,17 @@ platform_pre_upgrade() {
 	wndr3700v4|\
 	wndr4300)
 		nand_do_upgrade "$1"
+		;;
+	rb-750-r2|\
+	rb-750up-r2|\
+	rb-941-2nd|\
+	rb-951ui-2nd|\
+	rb-952ui-5ac2nd|\
+	rb-962uigs-5hact2hnt|\
+	rb-lhg-5nd|\
+	rb-mapl-2nd)
+		# erase firmware if booted from initramfs
+		[ -z "$(rootfs_type)" ] && mtd erase firmware
 		;;
 	mr18|\
 	z1)

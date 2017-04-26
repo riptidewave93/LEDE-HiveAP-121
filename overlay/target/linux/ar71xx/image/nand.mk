@@ -1,18 +1,3 @@
-define Device/hiveap-121
-  DEVICE_TITLE := Aerohive HiveAP-121
-  DEVICE_PACKAGES := kmod-usb-core kmod-usb2 kmod-i2c-gpio-custom kmod-spi-gpio kmod-ath9k kmod-tpm-i2c-atmel
-  BOARDNAME = HiveAP-121
-  BLOCKSIZE := 64k
-  CONSOLE = ttyS0,9600
-  MTDPARTS = spi0.0:512k(u-boot)ro,64k(u-boot-env),64k(hw-info),64k(boot-info),64k(boot-sinfo)ro;ar934x-nfc:4096k(u-boot-1),4096k(u-boot-env-1),5m(kernel),5m(kernel-1),25m(rootfs-unused),25m(rootfs-1),56m(ubi),4096k(wifi-info)
-  IMAGES := sysupgrade.tar
-  KERNEL := kernel-bin | patch-cmdline | lzma | uImage lzma
-  KERNEL_INITRAMFS := kernel-bin | patch-cmdline | lzma | uImage lzma
-  IMAGE/sysupgrade.tar := sysupgrade-tar
-endef
-
-TARGET_DEVICES += hiveap-121
-
 define Device/c-60
   DEVICE_TITLE := AirTight C-60
   DEVICE_PACKAGES := kmod-spi-gpio kmod-usb-core kmod-usb2 kmod-ath9k
@@ -37,6 +22,21 @@ define Device/domywifi-dw33d
   IMAGE/sysupgrade.bin = append-rootfs | pad-rootfs | pad-to 14528k | append-kernel | check-size $$$$(IMAGE_SIZE)
 endef
 TARGET_DEVICES += domywifi-dw33d
+
+define Device/hiveap-121
+  DEVICE_TITLE := Aerohive HiveAP-121
+  DEVICE_PACKAGES := kmod-usb-core kmod-usb2 kmod-i2c-gpio-custom kmod-spi-gpio kmod-ath9k kmod-tpm-i2c-atmel
+  BOARDNAME = HiveAP-121
+  BLOCKSIZE := 64k
+  CONSOLE = ttyS0,9600
+  MTDPARTS = spi0.0:512k(u-boot)ro,64k(u-boot-env),64k(hw-info),64k(boot-info),64k(boot-sinfo)ro;ar934x-nfc:4096k(u-boot-1),4096k(u-boot-env-1),5m(kernel),5m(kernel-1),25m(rootfs-unused),25m(rootfs-1),56m(ubi),4096k(wifi-info)
+  IMAGES := sysupgrade.tar
+  KERNEL := kernel-bin | patch-cmdline | lzma | uImage lzma
+  KERNEL_INITRAMFS := kernel-bin | patch-cmdline | lzma | uImage lzma
+  IMAGE/sysupgrade.tar := sysupgrade-tar
+endef
+
+TARGET_DEVICES += hiveap-121
 
 define Build/MerakiNAND
 	-$(STAGING_DIR_HOST)/bin/mkmerakifw \
@@ -83,7 +83,7 @@ TARGET_DEVICES += z1
 
 define LegacyDevice/R6100
   DEVICE_TITLE := NETGEAR R6100
-  DEVICE_PACKAGES := kmod-usb-core kmod-usb-ohci kmod-usb2 kmod-usb-ledtrig-usbport
+  DEVICE_PACKAGES := kmod-ath10k ath10k-firmware-qca988x kmod-usb-core kmod-usb-ohci kmod-usb2 kmod-usb-ledtrig-usbport
 endef
 LEGACY_DEVICES += R6100
 

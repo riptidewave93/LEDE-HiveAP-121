@@ -183,6 +183,18 @@ config ATH79_MACH_AP152
 	select ATH79_DEV_WMAC
 	select ATH79_DEV_AP9X_PCI if PCI
 
+config ATH79_MACH_AP531B0
+	bool "Rockeetech AP531B0 support"
+	select SOC_QCA953X
+	select ATH79_DEV_AP9X_PCI if PCI
+	select ATH79_DEV_ETH
+	select ATH79_DEV_GPIO_BUTTONS
+	select ATH79_DEV_LEDS_GPIO
+	select ATH79_DEV_M25P80
+	select ATH79_DEV_SPI
+	select ATH79_DEV_USB
+	select ATH79_DEV_WMAC
+
 config ATH79_MACH_AP90Q
 	bool "YunCore AP90Q support"
 	select SOC_QCA953X
@@ -440,6 +452,17 @@ config ATH79_MACH_WPJ531
 config ATH79_MACH_WPJ558
 	bool "Compex WPJ558 board support"
 	select SOC_QCA955X
+	select ATH79_DEV_ETH
+	select ATH79_DEV_GPIO_BUTTONS
+	select ATH79_DEV_LEDS_GPIO
+	select ATH79_DEV_M25P80
+	select ATH79_DEV_USB
+	select ATH79_DEV_WMAC
+
+config ATH79_MACH_WPJ563
+	bool "Compex WPJ563 board support"
+	select SOC_QCA956X
+	select ATH79_DEV_AP9X_PCI if PCI
 	select ATH79_DEV_ETH
 	select ATH79_DEV_GPIO_BUTTONS
 	select ATH79_DEV_LEDS_GPIO
@@ -784,6 +807,7 @@ config ATH79_MACH_HIVEAP_121
 	select ATH79_DEV_NFC
 	select ATH79_DEV_USB
 	select ATH79_DEV_WMAC
+
 config ATH79_MACH_HIWIFI_HC6361
 	bool "HiWiFi HC6361 board support"
 	select SOC_AR933X
@@ -848,6 +872,16 @@ config ATH79_MACH_WRTNODE2Q
 	select ATH79_DEV_GPIO_BUTTONS
 	select ATH79_DEV_LEDS_GPIO
 	select ATH79_DEV_M25P80
+	select ATH79_DEV_WMAC
+
+config ATH79_MACH_R602N
+	bool "P&W R602N support"
+	select SOC_QCA953X
+	select ATH79_DEV_ETH
+	select ATH79_DEV_GPIO_BUTTONS
+	select ATH79_DEV_LEDS_GPIO
+	select ATH79_DEV_M25P80
+	select ATH79_DEV_USB
 	select ATH79_DEV_WMAC
 
 config ATH79_MACH_R6100
@@ -927,7 +961,9 @@ config ATH79_MACH_RB2011
 
 config ATH79_MACH_RBSPI
 	bool "MikroTik RouterBOARD SPI-NOR support"
+	select SOC_AR934X
 	select SOC_QCA953X
+	select SOC_QCA955X
 	select ATH79_DEV_ETH
 	select ATH79_DEV_GPIO_BUTTONS
 	select ATH79_DEV_LEDS_GPIO
@@ -940,8 +976,11 @@ config ATH79_MACH_RBSPI
 	  MikroTik RouterBOARD mAP lite
 	  MikroTik RouterBOARD hAP lite
 	  MikroTik RouterBOARD hAP
+	  MikroTik RouterBOARD hAP ac
+	  MikroTik RouterBOARD hAP ac lite
 	  MikroTik RouterBOARD hEX PoE lite
 	  MikroTik RouterBOARD hEX lite
+	  MikroTik RouterBOARD LHG 5
 	  MikroTik RouterBOARD cAP (EXPERIMENTAL)
 	  MikroTik RouterBOARD mAP (EXPERIMENTAL)
 	  MikroTik RouterBOARD wAP (EXPERIMENTAL)
@@ -1302,6 +1341,15 @@ config ATH79_MACH_ARCHER_C7
 	select ATH79_DEV_USB
 	select ATH79_DEV_WMAC
 
+config ATH79_MACH_CPE505N
+	bool "P&W CPE505N support"
+	select SOC_QCA953X
+	select ATH79_DEV_ETH
+	select ATH79_DEV_GPIO_BUTTONS
+	select ATH79_DEV_LEDS_GPIO
+	select ATH79_DEV_M25P80
+	select ATH79_DEV_WMAC
+
 config ATH79_MACH_CPE510
 	bool "TP-LINK CPE510 support"
 	select SOC_AR934X
@@ -1560,6 +1608,15 @@ config ATH79_MACH_TL_WR810N
 	select ATH79_DEV_LEDS_GPIO
 	select ATH79_DEV_M25P80
 	select ATH79_DEV_USB
+	select ATH79_DEV_WMAC
+
+config ATH79_MACH_TL_WR840N_V2
+	bool "TP-LINK TL-WR840N v2/v3 support"
+	select SOC_QCA953X
+	select ATH79_DEV_ETH
+	select ATH79_DEV_GPIO_BUTTONS
+	select ATH79_DEV_LEDS_GPIO
+	select ATH79_DEV_M25P80
 	select ATH79_DEV_WMAC
 
 config ATH79_MACH_TL_WR841N_V1
