@@ -2,6 +2,8 @@
 
 Bringup repo for LEDE on the Aerohive HiveAP-121
 
+**NOTE: This repo is NO LONGER MAINTAINED as these changes were merged upstream. Refer to https://github.com/lede-project/source/commit/10d11859dfbad0b4482d1a50b20ef91eeeeca2d7 and enjoy the official LEDE nightles!**
+
 Building
 -----
 #### Build Only
